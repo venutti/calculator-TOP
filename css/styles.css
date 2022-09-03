@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Condensed&display=swap');
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    /*funciona como 100vh, pero mejor*/
+    height: 100%;
+    background: rgb(2,20,2);
+    background: linear-gradient(324deg, rgba(2,20,2,1) 26%, rgba(9,24,6,1) 31%, rgba(37,134,11,1) 83%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#calculator {
+    width: 400px;
+    height: 90%;
+    border-radius: 1rem;
+    background-color: rgb(128, 128, 128);
+    box-shadow: 20px 20px rgb(40, 40, 40);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+#display {
+    width: 95%;
+    height: 15%;
+    padding: 1rem;
+    background-color: rgb(171, 241, 230);
+    border-radius: .5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Orbitron', sans-serif;
+}
+#buttons {
+    width: 95%;
+    height: 80%;
+    background-color: black;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#buttons .row {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+}
+#buttons .row .button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+}
+/*las clases grow son para que el tablero de botones se estilice como quiero*/
+#calculator #buttons .button.grow-2 {
+    flex-grow: 2;
+}
+#calculator #buttons .button.grow-3 {
+    flex-grow: 3;
+}
+#calculator #buttons .button.danger {
+    background-color: rgb(201, 7, 23);
+}
+#calculator #buttons .button.oper {
+    background-color: rgb(238, 136, 20);
+}
+#calculator #buttons .button.number {
+    background-color: rgb(110, 131, 175);
+}
+#calculator #buttons .button:active {
+    opacity: .7;
+}
