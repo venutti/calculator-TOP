@@ -21,10 +21,10 @@ function substract(a, b) {
 function displayNumber(e) {
     const number = e.target.textContent;
     const digits = document.querySelector("#display #digits");
-    if (+digits.textContent === 0) {
+    if (!actualDigits) {
         digits.textContent = number;
     } else {
-        const numberList = digits.textContent.split("");
+        const numberList = actualDigits.split("");
         // 9 digitos max
         if (numberList.length === 9) return
         numberList.push(number);
@@ -32,7 +32,10 @@ function displayNumber(e) {
     }
 }
 function getNumberDisplay() {
-    const digits = document.querySelector("#display #digits").textContent;
+    let digits = actualDigits;
+    if (!actualDigits) {
+        digits = (queue[0]) ? queue[0] : 0;
+    }
     const sign = document.querySelector("#display #sign").textContent;
     return (sign) ? -(+digits) : (+digits);
 }
@@ -45,6 +48,9 @@ function clearDigit() {
     const numberList = digits.textContent.split("");
     numberList.pop();
     digits.textContent = (numberList.length === 0) ? "0" : numberList.join("");
+}
+function clearActualDigits() {
+    actualDigits = "";
 }
 function showResult(result) {
     const digits = document.querySelector("#display #digits");
@@ -76,13 +82,19 @@ function evaluateOperand(e) {
         return;
     }
     const operand = getNumberDisplay();
-    queue.push(operand);
+    queueAdd(operand);
     if (operator === "=") {
         operation[operator]();
         return;
     }
+    clearActualDigits();
     evaluateQueue();
-    queue.push(operation[operator]);
+    queueAdd(operation[operator]);
+}
+
+/*QUEUE FUNCTIONS*/
+function queueAdd(elem) {
+    queue.push(elem);
 }
 function evaluateQueue() {
     if (queue.length === 3) executeQueue();
