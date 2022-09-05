@@ -12,14 +12,13 @@
 <body>
     <div id="calculator">
         <div id="display">
-            <span id="sign"></span>
-            <span id="digits">0</span>
+            <span id="digits"></span>
         </div>
         <div id="buttons">
             <div class="row">
                 <div id="ac" class="button danger grow-3">AC</div>
                 <div id="c" class="button danger grow-3">C</div>
-                <div class="button oper grow-2">+/-</div>
+                <div data-change-sign class="button grow-2">+/-</div>
             </div>
             <div class="row">
                 <div class="button number">7</div>
@@ -41,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="button grow-2 number">0</div>
-                <div class="button oper">=</div>
+                <div data-equals class="button">=</div>
                 <div class="button oper">+</div>
             </div>
         </div>

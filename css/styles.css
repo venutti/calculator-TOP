@@ -75,7 +75,9 @@ body {
 #calculator #buttons .button.danger {
     background-color: rgb(201, 7, 23);
 }
-#calculator #buttons .button.oper {
+#calculator #buttons .button.oper,
+#calculator #buttons .button[data-equals],
+#calculator #buttons .button[data-change-sign] {
     background-color: rgb(238, 136, 20);
 }
 #calculator #buttons .button.number {
